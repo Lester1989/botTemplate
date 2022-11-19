@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Discord Bot Webinterface EXAMPLE</title>
+    <link rel="stylesheet" type="text/css" href="/static/style.css" />
+
+    <link id="favicon" rel="icon" type="image/x-icon" href="/favicon.ico">
+</head>
+
+<body>
+    <div class="center">
+        <h1>Example Data</h1>
+        <table style="margin:auto;">
+            <tr>
+                <th>ID</th>
+                <th>Text</th>
+                <th>Number</th>
+                <th>Created</th>
+                <th>Updated</th>
+                <th></th>
+            </tr>
+            {% for example in data %}
+            <tr>
+                <td>{{ example.id }}</td>
+                <td>{{ example.textvalue }}</td>
+                <td>{{ example.numbervalue }}</td>
+                <td>{{ example.created_at.strftime('%d.%m.%Y %H:%M') }}</td>
+                <td>{{ example.updated_at.strftime('%d.%m.%Y %H:%M') }}</td>
+                <td>
+                    <form method="post" action="/home/example/delete">
+                        <input type="hidden" name="id" value="{{ example.id }}">
+                        <button type="submit" value="submit_value">
+                            Delete
+                        </button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+        <h3>New Entry:</h3>
+        <form method="post" action="/home/example">
+            <input type="text" name="textvalue" placeholder="Text">
+            <input type="number" name="numbervalue" placeholder="Number">
+            <button type="submit" name="submit_param" value="submit_value">
+                Add
+            </button>
+        </form>
+    </div>
+</body>
+
+</html>

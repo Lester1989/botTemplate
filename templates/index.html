@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Discord Bot Webinterface</title>
+    <link rel="stylesheet" type="text/css" href="/static/style.css" />
+    
+    <link id="favicon" rel="icon" type="image/x-icon" href="/favicon.ico">
+</head>
+
+<body>
+    <div class="center">
+        <h1>Discord Bot Webinterface</h1>
+        {% for page_url,page_name in sub_pages %}
+        <a style="text-decoration: none;" href="{{ page_url }}">
+            <span class="page-link">{{page_name}}</span>
+        </a>
+        {% endfor %}
+    </div>
+</body>
+
+</html>

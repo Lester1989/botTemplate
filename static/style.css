@@ -1,0 +1,82 @@
+
+:root {
+    --darkest: #404258;
+    --dark: #474E68;
+    --medium: #50577A;
+    --light: #6B728E;
+    --accent: #F9A826;
+    --accent-light: rgba(249, 168, 38, 0.25);
+  }
+body{
+    background-color: var(--darkest);
+    color: whitesmoke;
+    font-family: 'Roboto', sans-serif;
+    margin: auto;
+}
+div.center{
+    text-align: center;
+    margin: auto;
+}
+.page-link{
+    display: block;
+    color: whitesmoke;
+    background-color: var(--medium);
+    border: 2px solid var(--light);
+    border-radius: 5px;
+    padding: 5px;
+    margin: auto;
+    margin-bottom: 10px;
+    width: 350px;
+    text-decoration: none;
+    text-align: center;
+}
+.page-link:hover{
+    color: var(--darkest);
+    background-color: whitesmoke;
+}
+.card {
+    width: 60%;
+    height: 100%;
+    background-color: var(--medium);
+    border-radius: 10px;
+    box-shadow: 0 0 10px var(--accent-light);
+    padding: 20px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+.card-header {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    color: var(--accent);
+}
+.card-sub-header {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+.card-body {
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+pre.log{
+    text-align: left;
+}
+.log-debug{
+    color: whitesmoke;
+}
+.log-info{
+    color: lightblue;
+}
+.log-warning{
+    color: orange;
+}
+.log-error{
+    color: red;
+}
+.log-critical{
+    color: darkred;
+    background-color: var(--light);
+    font-weight: bold;
+}

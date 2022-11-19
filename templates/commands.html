@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Commands</title>
+
+    <link rel="stylesheet" type="text/css" href="/static/style.css" />
+
+  
+    <link id="favicon" rel="icon" type="image/x-icon" href="/favicon.ico">
+</head>
+
+<body>
+    {% for cog,cog_commands in commands.items() %}
+    <div>
+        <h2>{{cog}}</h2>
+        {% for command in cog_commands %}
+        {% if "ADMINS" in command.description %}
+        <div class="card admin-card" style="padding: 15px;margin:20px;">
+            {% else %}
+            <div class="card" style="padding: 15px;margin:20px;">
+                {% endif %}
+                <div class="card-header discord-name">{{command.name}}</div>
+                <div class="card-sub-header">{{command.description}}</div>
+                {% if command.options %}
+                <div class="card-body">
+                    {% for option_name,description_type in command.options.items() %}
+                    <p><span class="discord-name">{{option_name}}</span> <span
+                            class="side-note">({{description_type[1]}})</span> : {{description_type[0]}}</p>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+            {% endfor %}
+            {% endfor %}
+</body>
+
+
+</html>
