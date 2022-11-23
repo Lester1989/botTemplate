@@ -11,6 +11,7 @@ def setup(bot):
 class HelpCog(interactions.Extension):
     def __init__(self,bot:interactions.Client):
         self.bot=bot
+        logger.debug('Cog initialized')
 
     @interactions.extension_command(name="help",description="Lists all Commands of the bot",guild_ids=config.guild_ids)
     async def help(self,ctx:interactions.CommandContext):

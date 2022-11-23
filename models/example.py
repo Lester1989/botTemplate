@@ -35,16 +35,14 @@ class ExampleData(Base):
             data = ExampleData(guild_id=guild_id, textvalue=textvalue, numbervalue=numbervalue)
             session.add(data)
             session.commit()
+            session.refresh(data)
             return data
 
     @staticmethod
-    def update( guild_id:int, id:int, textvalue:str, numbervalue:int) -> ExampleData:
+    def update( guild_id:int, id:int, textvalue:str, numbervalue:int):
         with Session(engine) as session:
-            data:ExampleData = session.query(ExampleData).filter(ExampleData.guild_id == guild_id, ExampleData.id == id).first()  # type: ignore
-            data.textvalue = textvalue
-            data.numbervalue = numbervalue
+            session.query(ExampleData).filter(ExampleData.guild_id == guild_id, ExampleData.id == id).update({ExampleData.textvalue:textvalue,ExampleData.numbervalue:numbervalue})  # type: ignore
             session.commit()
-            return data
 
     @staticmethod
     def delete( guild_id:int, id:int) -> None:
